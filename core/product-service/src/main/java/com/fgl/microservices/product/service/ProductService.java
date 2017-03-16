@@ -37,13 +37,13 @@ public class ProductService {
 		return productRepository.findOne(id);
 	}
 
-	@Cacheable(value = "products", key = "#id")
+
 	public List<Product> getProductByName(String name) {
 		log.info("fetching products for name" + name);
 		return productRepository.findByName(name);
 	}
 
-	@Cacheable(value = "products", key = "#id")
+
 	public List<Product> getProductByDescription(String description) {
 		log.info("fetching products for description" + description);
 		return productRepository.findByDescription(description);
