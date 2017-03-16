@@ -15,4 +15,4 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'composite_service_mysql_cache'
+rootProject.name = 'spring_sleuth_sample'

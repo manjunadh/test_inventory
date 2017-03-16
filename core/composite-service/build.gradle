@@ -1,10 +1,10 @@
 buildscript {
     ext {
 		springBootVersion = '1.5.1.RELEASE'
-		springCloudVersion= '1.2.5.RELEASE'
-		hazzlecastVersion=  '3.7'
-		springSleuthVersion='1.1.3.RELEASE'
-		zipkinVersion='1.20.1'
+		springBootVersion = '1.5.1.RELEASE'
+        springsleuthVersion='1.1.3.RELEASE'
+        springCloudVersion='1.2.5.RELEASE'
+        zipkinVersion='1.20.1'
 	}
 	repositories {
 		mavenCentral()
@@ -14,9 +14,7 @@ buildscript {
     }
 }
 
-plugins {
-    id "com.jfrog.bintray" version "0.4.1"
-}
+
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -39,26 +37,19 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}"){
+   compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}") {
         exclude module: 'spring-boot-starter-tomcat'
     }
     compile("org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
-    compile("org.springframework.cloud:spring-cloud-sleuth-core:${springSleuthVersion}")
-    compile("org.springframework.cloud:spring-cloud-sleuth-zipkin:${springSleuthVersion}")
-    compile("org.springframework.boot:spring-boot-starter-aop:${springBootVersion}")
     compile("org.springframework.cloud:spring-cloud-starter-hystrix:${springCloudVersion}")
     compile("org.springframework.cloud:spring-cloud-starter-eureka:${springCloudVersion}")
-    compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
-    compile("mysql:mysql-connector-java:5.1.6")
+    compile("org.springframework.cloud:spring-cloud-sleuth-core:${springsleuthVersion}")
+    compile("org.springframework.cloud:spring-cloud-sleuth-zipkin:${springsleuthVersion}")
     compile("io.zipkin.java:zipkin-server:${zipkinVersion}")
-    compile("io.zipkin.java:zipkin-junit:${zipkinVersion}")
-    compile("com.hazelcast:hazelcast:${hazzlecastVersion}")
-
-
+        
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.9'
 }
-
