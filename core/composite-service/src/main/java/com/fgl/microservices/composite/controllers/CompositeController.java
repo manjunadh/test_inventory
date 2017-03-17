@@ -5,12 +5,12 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.fgl.microservices.commons.model.Product;
+import com.fgl.microservices.composite.model.ProductDetails;
 import com.fgl.microservices.composite.services.CompositeService;
 
 @RestController
@@ -43,9 +43,9 @@ public class CompositeController {
 		return "HomePage";
 	}
 
-	@RequestMapping("/test")
-	public String getProduct() {
-		return compositeService.getProduct();
+	@RequestMapping("/test/{id}")
+	public ProductDetails getProduct(@PathVariable String id) {
+		return compositeService.getProduct(id);
 	}
 
 }

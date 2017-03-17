@@ -28,19 +28,7 @@ jar {
     version = '0.0.1-SNAPSHOT'
 }
 
-// $ gradle publishToMavenLocal
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            // TODO: Where to place these properties?
-            groupId 'com.fgl.microservices'
-            artifactId 'price'
-            version '0.0.1-SNAPSHOT'
 
-            from components.java
-        }
-    }
-}
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
