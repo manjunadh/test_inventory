@@ -22,6 +22,8 @@ public class CompositeController {
 	@Autowired
 	private CompositeService compositeService;
 
+	
+
 	@RequestMapping("/products")
 	public List<?> getAllProducts() {
 
@@ -43,8 +45,9 @@ public class CompositeController {
 		return "HomePage";
 	}
 
-	@RequestMapping("/test/{id}")
+	@RequestMapping("/products/{id}")
 	public ProductDetails getProduct(@PathVariable String id) {
+		log.info("getting product for id controller"+id);
 		return compositeService.getProduct(id);
 	}
 

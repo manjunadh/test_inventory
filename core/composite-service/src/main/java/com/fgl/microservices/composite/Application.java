@@ -5,6 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.sleuth.zipkin.ZipkinSpanReporter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -15,6 +16,7 @@ import zipkin.Span;
 
 @SpringBootApplication
 @EnableAspectJAutoProxy
+@EnableDiscoveryClient
 @ComponentScan({"com.fgl.microservices.composite.services", "com.fgl.microservices.util"})
 public class Application {
 	private static final Log log = LogFactory.getLog(Application.class);
