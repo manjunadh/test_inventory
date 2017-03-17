@@ -44,7 +44,7 @@ public class CompositeController {
 	}
 
 	@RequestMapping("/test")
-	public ResponseEntity<Product> getProduct() {
+	public String getProduct() {
 		return compositeService.getProduct();
 	}
 

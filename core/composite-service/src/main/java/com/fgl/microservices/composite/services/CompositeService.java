@@ -14,12 +14,13 @@ public class CompositeService {
 	private RestTemplate restTemplate;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(CompositeService.class);
-	public ResponseEntity<Product> getProduct(){
+	public String getProduct(){
 		LOG.info("getting product service class");
 		String url = "http://35.184.125.140:9876/products/pro001" ;
         LOG.debug("GetProduct from URL: {}", url);
-        ResponseEntity<Product> product= restTemplate.getForEntity(url, Product.class);       
-        return product;
+        ResponseEntity<Product> product= restTemplate.getForEntity(url,Product.class);   
+        
+        return product.getBody().getName();
 	}
 	
 }
