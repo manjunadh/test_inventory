@@ -9,11 +9,13 @@ import org.springframework.cloud.sleuth.zipkin.ZipkinSpanReporter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.context.annotation.ComponentScan;
 
 import zipkin.Span;
 
 @SpringBootApplication
 @EnableAspectJAutoProxy
+@ComponentScan({"com.fgl.microservices.composite.services", "com.fgl.microservices.util"})
 public class Application {
 	private static final Log log = LogFactory.getLog(Application.class);
 
@@ -39,4 +41,7 @@ public class Application {
 		};
 	}
 
+	
+	
+	
 }

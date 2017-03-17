@@ -5,9 +5,13 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import com.fgl.microservices.commons.model.Product;
+import com.fgl.microservices.composite.services.CompositeService;
 
 @RestController
 public class CompositeController {
@@ -15,6 +19,8 @@ public class CompositeController {
 
 	@Autowired
 	private RestTemplate restTemplate;
+	@Autowired
+	private CompositeService compositeService;
 
 	@RequestMapping("/products")
 	public List<?> getAllProducts() {
@@ -35,6 +41,11 @@ public class CompositeController {
 	public String hi() throws InterruptedException {
 		log.info("Home page");
 		return "HomePage";
+	}
+
+	@RequestMapping("/test")
+	public ResponseEntity<Product> getProduct() {
+		return compositeService.getProduct();
 	}
 
 }

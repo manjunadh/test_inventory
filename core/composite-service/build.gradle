@@ -30,6 +30,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
+	mavenLocal()
 	mavenCentral()
 	 maven {
         url 'http://maven.springframework.org/release'
@@ -47,6 +48,7 @@ dependencies {
     compile("org.springframework.cloud:spring-cloud-sleuth-core:${springsleuthVersion}")
     compile("org.springframework.cloud:spring-cloud-sleuth-zipkin:${springsleuthVersion}")
     compile("io.zipkin.java:zipkin-server:${zipkinVersion}")
+    compile("com.fgl.microservises:util:0.0.1-SNAPSHOT")
         
 }
 

@@ -24,8 +24,22 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar {
-        baseName = 'boot-gradle'
-        version = '0.0.1-SNAPSHOT'
+    baseName = 'product'
+    version = '0.0.1-SNAPSHOT'
+}
+
+// $ gradle publishToMavenLocal
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            // TODO: Where to place these properties?
+            groupId 'com.fgl.microservices'
+            artifactId 'product'
+            version '0.0.1-SNAPSHOT'
+
+            from components.java
+        }
+    }
 }
 
 sourceCompatibility = 1.8
